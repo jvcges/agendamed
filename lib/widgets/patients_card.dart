@@ -8,9 +8,13 @@ class PatientsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final avatar = patient.avatarUrl.isEmpty
+        ? CircleAvatar(child: Icon(Icons.person))
+        : CircleAvatar(backgroundImage: NetworkImage(patient.avatarUrl));
     return Card(
       elevation: 10,
       child: ListTile(
+        leading: avatar,
         title: Text(
           patient.name,
           style: TextStyle(

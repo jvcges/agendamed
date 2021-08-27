@@ -15,9 +15,10 @@ class PatientList extends StatelessWidget {
         itemBuilder: (context, index) =>
             PatientsCard(patients.values.elementAt(index)),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () {},
-        child: Icon(Icons.add),
+        label: Text('Cadastrar'),
+        icon: Icon(Icons.add_circle),
       ),
     );
   }

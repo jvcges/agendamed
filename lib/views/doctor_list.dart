@@ -1,23 +1,24 @@
-import 'package:agendamed/data/data_doctor.dart';
+import 'package:agendamed/provider/doctors.dart';
 import 'package:agendamed/widgets/doctor_card.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class DoctorList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final doctors = {...DATA_DOCTORS};
+    final Doctors doctors = Provider.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Médicos'),
       ),
       body: ListView.builder(
-        itemCount: doctors.length,
-        itemBuilder: (context, index) =>
-            DoctorCard(doctors.values.elementAt(index)),
+        itemCount: doctors.count,
+        itemBuilder: (context, index) => DoctorCard(doctors.byIndex(index)),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () {},
-        child: Icon(Icons.add),
+        label: Text('Cadastrar'),
+        icon: Icon(Icons.add_circle),
       ),
     );
   }

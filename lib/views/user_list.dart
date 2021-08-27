@@ -16,9 +16,10 @@ class UserList extends StatelessWidget {
         itemBuilder: (context, index) =>
             UsersCard(users.values.elementAt(index)),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () {},
-        child: Icon(Icons.add),
+        label: Text('Cadastrar'),
+        icon: Icon(Icons.add_circle),
       ),
     );
   }

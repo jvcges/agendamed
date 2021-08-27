@@ -6,6 +6,7 @@ class Patient {
   final String phone;
   final String rg;
   final String cpf;
+  final String avatarUrl;
 
   const Patient({
     required this.id,
@@ -13,5 +14,6 @@ class Patient {
     required this.phone,
     required this.rg,
     required this.cpf,
+    required this.avatarUrl,
   });
 }

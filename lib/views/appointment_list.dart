@@ -50,9 +50,10 @@ class AppointmentList extends StatelessWidget {
         itemBuilder: (context, index) =>
             AppointmentCard(appointments.values.elementAt(index)),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () {},
-        child: Icon(Icons.add),
+        label: Text('Cadastrar'),
+        icon: Icon(Icons.add_circle),
       ),
       drawer: Drawer(
         child: ListView(
@@ -60,7 +61,7 @@ class AppointmentList extends StatelessWidget {
           children: [
             const UserAccountsDrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.deepPurple,
+                color: Colors.blueGrey,
               ),
               accountEmail: Text('joaogermain@gmail.com'),
               accountName: Text('João Victor Germain'),

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import 'appointment_list.dart';
-import 'doctor_list.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -20,7 +19,7 @@ class _LoginState extends State<Login> {
     return Scaffold(
       body: Container(
         padding: EdgeInsets.only(top: 180, left: 40, right: 40),
-        color: Colors.deepPurple,
+        color: Colors.blueGrey,
         child: ListView(
           children: <Widget>[
             SizedBox(
@@ -96,8 +95,8 @@ class _LoginState extends State<Login> {
                   end: Alignment.bottomRight,
                   stops: [0.3, 1],
                   colors: [
-                    Color(0xFFFF1744),
-                    Color(0xFFFFA726),
+                    Colors.red.shade400,
+                    Colors.red.shade200,
                   ],
                 ),
                 borderRadius: BorderRadius.all(

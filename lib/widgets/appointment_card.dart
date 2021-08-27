@@ -8,10 +8,10 @@ class AppointmentCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final avatar = appointment.doctor.avatarUrl.isEmpty
+    final avatar = appointment.patient.avatarUrl.isEmpty
         ? CircleAvatar(child: Icon(Icons.person))
         : CircleAvatar(
-            backgroundImage: NetworkImage(appointment.doctor.avatarUrl));
+            backgroundImage: NetworkImage(appointment.patient.avatarUrl));
     return Card(
       elevation: 10,
       child: ListTile(
