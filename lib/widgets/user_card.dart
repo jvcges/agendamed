@@ -33,12 +33,12 @@ class UsersCard extends StatelessWidget {
             children: <Widget>[
               IconButton(
                 icon: Icon(Icons.edit),
-                color: Colors.deepPurple,
+                color: Colors.blueGrey,
                 onPressed: () {},
               ),
               IconButton(
                 icon: Icon(Icons.delete),
-                color: Colors.purpleAccent,
+                color: Colors.indigo.shade600,
                 onPressed: () {},
               ),
             ],
