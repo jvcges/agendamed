@@ -5,6 +5,7 @@ const DATA_PATIENTS = {
     id: 1,
     name: 'Walter Kanneman',
     phone: '51994586598',
+    date:  '15/11/1998',
     rg: '7485963123',
     cpf: '45678913257',
     avatarUrl:
@@ -14,6 +15,7 @@ const DATA_PATIENTS = {
     id: 2,
     name: 'Mathias Villasanti',
     phone: '51997896541',
+    date:  '15/11/1998',
     rg: '4596871356',
     cpf: '15769845367',
     avatarUrl:
@@ -23,6 +25,7 @@ const DATA_PATIENTS = {
     id: 3,
     name: 'Gabriel Chapecó',
     phone: '51998979654',
+    date:  '15/11/1998',
     rg: '9678541236',
     cpf: '18567985643',
     avatarUrl:
