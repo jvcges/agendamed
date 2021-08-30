@@ -1,6 +1,8 @@
-import 'package:agendamed/models/user.dart';
+import 'package:agendamed/provider/doctors.dart';
+import 'package:agendamed/routes/app.routes.dart';
 import 'package:flutter/material.dart';
 import 'package:agendamed/models/doctor.dart';
+import 'package:provider/provider.dart';
 
 class DoctorCard extends StatelessWidget {
   late final Doctor doctor;
@@ -9,6 +11,7 @@ class DoctorCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Doctors doctors = Provider.of(context);
     final avatar = doctor.avatarUrl.isEmpty
         ? CircleAvatar(child: Icon(Icons.person))
         : CircleAvatar(backgroundImage: NetworkImage(doctor.avatarUrl));
@@ -35,12 +38,19 @@ class DoctorCard extends StatelessWidget {
               IconButton(
                 icon: Icon(Icons.edit),
                 color: Colors.blueGrey,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamed(
+                    AppRoutes.DOCTOR_FORM,
+                    arguments: doctor,
+                  );
+                },
               ),
               IconButton(
                 icon: Icon(Icons.delete),
                 color: Colors.indigo.shade600,
-                onPressed: () {},
+                onPressed: () {
+                  doctors.remove(doctor);
+                },
               ),
             ],
           ),

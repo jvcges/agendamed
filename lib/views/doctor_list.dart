@@ -1,4 +1,5 @@
 import 'package:agendamed/provider/doctors.dart';
+import 'package:agendamed/routes/app.routes.dart';
 import 'package:agendamed/widgets/doctor_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +17,11 @@ class DoctorList extends StatelessWidget {
         itemBuilder: (context, index) => DoctorCard(doctors.byIndex(index)),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).pushNamed(
+            AppRoutes.DOCTOR_FORM,
+          );
+        },
         label: Text('Cadastrar'),
         icon: Icon(Icons.add_circle),
       ),

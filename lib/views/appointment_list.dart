@@ -1,57 +1,32 @@
-import 'package:agendamed/data/data_doctor.dart';
-import 'package:agendamed/data/data_patient.dart';
-import 'package:agendamed/data/data_users.dart';
-import 'package:agendamed/models/appointment.dart';
+import 'package:agendamed/provider/appointments.dart';
+import 'package:agendamed/routes/app.routes.dart';
 import 'package:agendamed/views/patient_list.dart';
 import 'package:agendamed/views/user_list.dart';
 import 'package:agendamed/widgets/appointment_card.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'doctor_list.dart';
 
 class AppointmentList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final doctors = {...DATA_DOCTORS};
-    final patients = {...DATA_PATIENTS};
-    final users = {...DATA_USERS};
-    final appointments = {
-      '1': Appointment(
-          id: 1,
-          patient: patients.values.elementAt(1),
-          doctor: doctors.values.elementAt(1),
-          date: "27/08/2021",
-          hour: "10:00",
-          insurance: "Unimed",
-          newAppointment: true),
-      '2': Appointment(
-          id: 2,
-          patient: patients.values.elementAt(2),
-          doctor: doctors.values.elementAt(2),
-          date: "27/08/2021",
-          hour: "12:00",
-          insurance: "FUSEX",
-          newAppointment: true),
-      '3': Appointment(
-          id: 3,
-          patient: patients.values.elementAt(0),
-          doctor: doctors.values.elementAt(0),
-          date: "27/08/2021",
-          hour: "15:00",
-          insurance: "CABERGS",
-          newAppointment: true)
-    };
+    final Appointments appointments = Provider.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Consultas'),
       ),
       body: ListView.builder(
-        itemCount: appointments.length,
+        itemCount: appointments.count,
         itemBuilder: (context, index) =>
-            AppointmentCard(appointments.values.elementAt(index)),
+            AppointmentCard(appointments.byIndex(index)),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).pushNamed(
+            AppRoutes.APPOINTMENT_FORM,
+          );
+        },
         label: Text('Cadastrar'),
         icon: Icon(Icons.add_circle),
       ),

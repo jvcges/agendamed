@@ -20,15 +20,29 @@ class Doctors with ChangeNotifier {
   }
 
   void put(Doctor doctor) {
-    final id = Random().nextInt(999999);
-    _items.putIfAbsent(
-        id.toString(),
-        () => Doctor(
-              id: id,
-              name: doctor.name,
-              crm: doctor.crm,
-              avatarUrl: doctor.avatarUrl,
-            ));
+    if (doctor.name == '' || doctor.crm == '') {
+      return;
+    }
+    //alterar
+    if (_items.containsKey(doctor.id.toString())) {
+      _items.update(doctor.id.toString(), (_) => doctor);
+    } else {
+      //cadastrar
+      final id = Random().nextInt(999999);
+      _items.putIfAbsent(
+          id.toString(),
+          () => Doctor(
+                id: id,
+                name: doctor.name,
+                crm: doctor.crm,
+                avatarUrl: doctor.avatarUrl,
+              ));
+    }
+    notifyListeners();
+  }
+
+  void remove(Doctor doctor) {
+    _items.remove(doctor.id.toString());
     notifyListeners();
   }
 }

@@ -6,5 +6,11 @@ const DATA_USERS = {
       name: 'João Victor',
       email: 'joaogermain@gmail.com',
       password: "123456",
+      avatarUrl: ""),
+  '2': const User(
+      id: 2,
+      name: 'Teste',
+      email: 'teste@teste.com',
+      password: "123456",
       avatarUrl: "")
 };

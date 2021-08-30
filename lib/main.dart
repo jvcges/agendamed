@@ -1,5 +1,13 @@
+import 'package:agendamed/provider/appointments.dart';
 import 'package:agendamed/provider/doctors.dart';
+import 'package:agendamed/provider/patients.dart';
+import 'package:agendamed/provider/users.dart';
+import 'package:agendamed/routes/app.routes.dart';
+import 'package:agendamed/views/appointment_form.dart';
+import 'package:agendamed/views/doctor_form.dart';
 import 'package:agendamed/views/login_page.dart';
+import 'package:agendamed/views/patient_form.dart';
+import 'package:agendamed/views/user_form.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,6 +23,15 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (ctx) => Doctors(),
         ),
+        ChangeNotifierProvider(
+          create: (ctx) => Patients(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => Users(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => Appointments(),
+        ),
       ],
       child: MaterialApp(
         title: 'AgendaMed',
@@ -22,7 +39,13 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blueGrey,
         ),
         debugShowCheckedModeBanner: false,
-        home: Login(),
+        routes: {
+          AppRoutes.LOGIN: (_) => Login(),
+          AppRoutes.DOCTOR_FORM: (_) => DoctorForm(),
+          AppRoutes.PATIENT_FORM: (_) => PatientForm(),
+          AppRoutes.USER_FORM: (_) => UserForm(),
+          AppRoutes.APPOINTMENT_FORM: (_) => AppointmentForm()
+        },
       ),
     );
   }
