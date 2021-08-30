@@ -1,8 +1,6 @@
 import 'dart:math';
 import 'package:agendamed/data/data_appointments.dart';
-import 'package:agendamed/data/data_users.dart';
 import 'package:agendamed/models/appointment.dart';
-import 'package:agendamed/models/user.dart';
 import 'package:flutter/cupertino.dart';
 
 class Appointments with ChangeNotifier {

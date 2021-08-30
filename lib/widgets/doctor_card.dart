@@ -49,7 +49,27 @@ class DoctorCard extends StatelessWidget {
                 icon: Icon(Icons.delete),
                 color: Colors.indigo.shade600,
                 onPressed: () {
-                  doctors.remove(doctor);
+                  showDialog(
+                      context: context,
+                      builder: (ctx) => AlertDialog(
+                            title: Text('Excluir Médico'),
+                            content: Text('Você tem certeza?'),
+                            actions: <Widget>[
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text('Não'),
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  doctors.remove(doctor);
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text('Sim'),
+                              )
+                            ],
+                          ));
                 },
               ),
             ],

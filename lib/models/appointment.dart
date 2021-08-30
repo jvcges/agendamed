@@ -1,6 +1,5 @@
 import 'package:agendamed/models/doctor.dart';
 import 'package:agendamed/models/patient.dart';
-import 'package:flutter/material.dart';
 
 class Appointment {
   final int id;

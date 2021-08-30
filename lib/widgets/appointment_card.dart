@@ -1,6 +1,6 @@
 import 'package:agendamed/models/appointment.dart';
 import 'package:agendamed/provider/appointments.dart';
-import 'package:agendamed/views/appointment_details.dart';
+import 'package:agendamed/routes/app.routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,13 +20,33 @@ class AppointmentCard extends StatelessWidget {
       elevation: 10,
       child: ListTile(
           onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => AppointmentDetails()),
+            Navigator.of(context).pushNamed(
+              AppRoutes.APPOINTMENT_DETAILS,
+              arguments: appointment,
             );
           },
           onLongPress: () {
-            appointments.remove(appointment);
+            showDialog(
+                context: context,
+                builder: (ctx) => AlertDialog(
+                      title: Text('Excluir Consulta'),
+                      content: Text('Você tem certeza?'),
+                      actions: <Widget>[
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Text('Não'),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            appointments.remove(appointment);
+                            Navigator.of(context).pop();
+                          },
+                          child: Text('Sim'),
+                        )
+                      ],
+                    ));
           },
           leading: avatar,
           title: Text(

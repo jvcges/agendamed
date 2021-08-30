@@ -49,7 +49,27 @@ class UsersCard extends StatelessWidget {
                 icon: Icon(Icons.delete),
                 color: Colors.indigo.shade600,
                 onPressed: () {
-                  users.remove(user);
+                  showDialog(
+                      context: context,
+                      builder: (ctx) => AlertDialog(
+                            title: Text('Excluir Usuário'),
+                            content: Text('Você tem certeza?'),
+                            actions: <Widget>[
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text('Não'),
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  users.remove(user);
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text('Sim'),
+                              )
+                            ],
+                          ));
                 },
               ),
             ],

@@ -3,6 +3,7 @@ import 'package:agendamed/provider/doctors.dart';
 import 'package:agendamed/provider/patients.dart';
 import 'package:agendamed/provider/users.dart';
 import 'package:agendamed/routes/app.routes.dart';
+import 'package:agendamed/views/appointment_details.dart';
 import 'package:agendamed/views/appointment_form.dart';
 import 'package:agendamed/views/doctor_form.dart';
 import 'package:agendamed/views/login_page.dart';
@@ -44,7 +45,8 @@ class MyApp extends StatelessWidget {
           AppRoutes.DOCTOR_FORM: (_) => DoctorForm(),
           AppRoutes.PATIENT_FORM: (_) => PatientForm(),
           AppRoutes.USER_FORM: (_) => UserForm(),
-          AppRoutes.APPOINTMENT_FORM: (_) => AppointmentForm()
+          AppRoutes.APPOINTMENT_FORM: (_) => AppointmentForm(),
+          AppRoutes.APPOINTMENT_DETAILS: (_) => AppointmentDetails()
         },
       ),
     );

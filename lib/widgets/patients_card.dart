@@ -50,7 +50,27 @@ class PatientsCard extends StatelessWidget {
                 icon: Icon(Icons.delete),
                 color: Colors.indigo.shade600,
                 onPressed: () {
-                  patients.remove(patient);
+                  showDialog(
+                      context: context,
+                      builder: (ctx) => AlertDialog(
+                            title: Text('Excluir Paciente'),
+                            content: Text('Você tem certeza?'),
+                            actions: <Widget>[
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text('Não'),
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  patients.remove(patient);
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text('Sim'),
+                              )
+                            ],
+                          ));
                 },
               ),
             ],

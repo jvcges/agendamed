@@ -4,4 +4,5 @@ class AppRoutes {
   static const PATIENT_FORM = '/patient-form';
   static const USER_FORM = '/user-form';
   static const APPOINTMENT_FORM = '/appointment-form';
+  static const APPOINTMENT_DETAILS = '/appointment-details';
 }
