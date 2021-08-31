@@ -1,5 +1,8 @@
+import 'package:agendamed/models/user.dart';
+import 'package:agendamed/provider/users.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
 
 import 'appointment_list.dart';
 
@@ -16,15 +19,16 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
+    final Users users = Provider.of(context);
     return Scaffold(
       body: Container(
         padding: EdgeInsets.only(top: 180, left: 40, right: 40),
-        color: Colors.blueGrey,
+        color: Colors.tealAccent.shade700,
         child: ListView(
           children: <Widget>[
             SizedBox(
-              width: 130,
-              height: 130,
+              width: 200,
+              height: 200,
               child: Image.asset("assets/logo.png"),
             ),
             SizedBox(
@@ -34,6 +38,7 @@ class _LoginState extends State<Login> {
               controller: _emailController,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
+                //border: OutlineInputBorder(),
                 labelText: "E-mail",
                 labelStyle: TextStyle(
                   color: Colors.white,
@@ -81,7 +86,7 @@ class _LoginState extends State<Login> {
             Container(
               height: 40,
               alignment: Alignment.bottomRight,
-              child: Text("Recuperar Senha"),
+              //child: Text("Recuperar Senha"),
             ),
             SizedBox(
               height: 40,
@@ -106,6 +111,22 @@ class _LoginState extends State<Login> {
               child: SizedBox.expand(
                 child: TextButton(
                   onPressed: () {
+                    if (users.authenticate(User(
+                            id: -1,
+                            name: "",
+                            email: _emailController.text,
+                            password: _senhaController.text,
+                            avatarUrl: "")) ==
+                        true) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AppointmentList()));
+                    } else {
+                      print("Senha inkdnd");
+                      // print(_emailController.text);
+                      // print(_senhaController.text);
+                    }
                     /*if (_formKey.currentState!.validate()) {
                       setState(() {});
                       email = _emailController.text;
@@ -114,10 +135,6 @@ class _LoginState extends State<Login> {
                     } else {}
 
                      */
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => AppointmentList()));
                   },
                   child: Text(
                     "Logar",

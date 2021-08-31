@@ -32,7 +32,7 @@ class _AppointmentFormState extends State<AppointmentForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Cadastrar Paciente"),
+        title: Text("Cadastrar Consulta"),
       ),
       body: Center(
         child: Container(
@@ -40,7 +40,7 @@ class _AppointmentFormState extends State<AppointmentForm> {
           child: Form(
             key: _formKey,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 TextFormField(
                   controller: _namePatient,

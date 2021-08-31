@@ -45,4 +45,19 @@ class Users with ChangeNotifier {
     _items.remove(user.id.toString());
     notifyListeners();
   }
+
+  bool authenticate(User login) {
+    var users = _items;
+    // List users = Users().all;
+    for (int i = 0; i <= users.length; i++) {
+      if (login.password == users[i]?.password &&
+          login.email == users[i]?.email) {
+        print(login.password);
+        return true;
+      }
+      i++;
+    }
+    print(login.email);
+    return true;
+  }
 }
