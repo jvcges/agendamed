@@ -1,11 +1,10 @@
+import 'package:agendamed/provider/patients.dart';
+import 'package:provider/provider.dart';
 import '../models/patient.dart';
-import 'package:agendamed/views/appointment_list.dart';
 import 'package:flutter/material.dart';
 
 class PatientForm extends StatefulWidget {
   const PatientForm({Key? key}) : super(key: key);
-
-
 
   @override
   _PatientFormState createState() => _PatientFormState();
@@ -21,8 +20,7 @@ class _PatientFormState extends State<PatientForm> {
 
   //late final Patient patient;
 
- // _PatientFormState(this.patient);
-
+  // _PatientFormState(this.patient);
 
   late String nomeCompleto = "",
       dataNascimento = "",
@@ -32,6 +30,7 @@ class _PatientFormState extends State<PatientForm> {
 
   @override
   Widget build(BuildContext context) {
+    final Patients patients = Provider.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Text("Cadastrar Paciente"),
@@ -42,8 +41,11 @@ class _PatientFormState extends State<PatientForm> {
           child: Form(
             key: _formKey,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                // SizedBox(
+                //   height: 30,
+                // ),
                 TextFormField(
                   controller: _nomeController,
                   keyboardType: TextInputType.name,
@@ -60,6 +62,9 @@ class _PatientFormState extends State<PatientForm> {
                     }
                   },
                 ),
+                SizedBox(
+                  height: 15,
+                ),
                 TextFormField(
                     controller: _dataNascimentoController,
                     keyboardType: TextInputType.datetime,
@@ -75,6 +80,9 @@ class _PatientFormState extends State<PatientForm> {
                         return "Campo em branco";
                       }
                     }),
+                SizedBox(
+                  height: 15,
+                ),
                 TextFormField(
                   controller: _telefoneController,
                   keyboardType: TextInputType.phone,
@@ -91,6 +99,9 @@ class _PatientFormState extends State<PatientForm> {
                     }
                   },
                 ),
+                SizedBox(
+                  height: 15,
+                ),
                 TextFormField(
                   controller: _rgController,
                   keyboardType: TextInputType.text,
@@ -106,6 +117,9 @@ class _PatientFormState extends State<PatientForm> {
                       return "Campo em branco";
                     }
                   },
+                ),
+                SizedBox(
+                  height: 15,
                 ),
                 TextFormField(
                   controller: _cpfController,
@@ -124,32 +138,36 @@ class _PatientFormState extends State<PatientForm> {
                     }
                   },
                 ),
-                Container(
-                  width: 200,
-                  color: Colors.blue,
-                  child: TextButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        setState(() {});
-                       nomeCompleto = _nomeController.text;
-                        dataNascimento = _dataNascimentoController.text;
-                        telefone= _telefoneController.text;
-                        rg = _rgController.text;
-                        cpf = _cpfController.text;
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (BuildContext context) => AppointmentList()));
-                      } else {}
-                    },
-                    child: Text("Cadastrar",
-                        style: TextStyle(color: Colors.white)),
-                  ),
-                ),
               ],
             ),
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          if (_formKey.currentState!.validate()) {
+            setState(() {});
+            nomeCompleto = _nomeController.text;
+            dataNascimento = _dataNascimentoController.text;
+            telefone = _telefoneController.text;
+            rg = _rgController.text;
+            cpf = _cpfController.text;
+            patients.put(
+              Patient(
+                id: -1,
+                name: nomeCompleto,
+                phone: telefone,
+                bornDate: dataNascimento,
+                rg: rg,
+                cpf: cpf,
+                avatarUrl: '',
+              ),
+            );
+            Navigator.of(context).pop();
+          } else {}
+        },
+        label: Text('Salvar'),
+        icon: Icon(Icons.person_add_alt_1_sharp),
       ),
     );
   }

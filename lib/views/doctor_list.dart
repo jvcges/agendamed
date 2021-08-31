@@ -1,3 +1,4 @@
+import 'package:agendamed/models/doctor.dart';
 import 'package:agendamed/provider/doctors.dart';
 import 'package:agendamed/routes/app.routes.dart';
 import 'package:agendamed/widgets/doctor_card.dart';

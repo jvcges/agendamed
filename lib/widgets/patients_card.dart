@@ -26,7 +26,7 @@ class PatientsCard extends StatelessWidget {
           ),
         ),
         subtitle: Text(
-          'Telefone: ' + patient.phone + '\n' + 'CPF' + patient.cpf,
+          'Telefone: ' + patient.phone + '\n' + 'CPF: ' + patient.cpf,
           style: TextStyle(
             fontSize: 15,
           ),

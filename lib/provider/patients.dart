@@ -36,7 +36,7 @@ class Patients with ChangeNotifier {
                 cpf: patient.cpf,
                 rg: patient.rg,
                 phone: patient.phone,
-                date: patient.date,
+                bornDate: patient.bornDate,
                 avatarUrl: patient.avatarUrl,
               ));
     }

@@ -58,17 +58,17 @@ class _AppointmentFormState extends State<AppointmentForm> {
                     }
                   },
                 ),
-                DropdownButtonFormField(
+                // DropdownButtonFormField(
 
-                  decoration: InputDecoration(
-                    labelText: "Médico:",
-                    border: OutlineInputBorder(),
-                    //   prefixIcon: Icon(Icons.person),
-                  ),
-                  onChanged: (newValue) {
-                    setState(() {});
-                  }, items: [],
-                ),
+                //   decoration: InputDecoration(
+                //     labelText: "Médico:",
+                //     border: OutlineInputBorder(),
+                //     //   prefixIcon: Icon(Icons.person),
+                //   ),
+                //   onChanged: (newValue) {
+                //     setState(() {});
+                //   }, items: [],
+                // ),
                 TextFormField(
                   controller: _date,
                   keyboardType: TextInputType.datetime,
