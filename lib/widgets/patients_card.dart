@@ -41,7 +41,7 @@ class PatientsCard extends StatelessWidget {
                 color: Colors.blueGrey,
                 onPressed: () {
                   Navigator.of(context).pushNamed(
-                    AppRoutes.PATIENT_FORM,
+                    AppRoutes.PATIENT_EDIT,
                     arguments: patient,
                   );
                 },

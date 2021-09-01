@@ -1,8 +1,6 @@
 import 'package:agendamed/models/doctor.dart';
 import 'package:agendamed/provider/doctors.dart';
-import 'package:agendamed/provider/patients.dart';
 import 'package:provider/provider.dart';
-import '../models/patient.dart';
 import 'package:flutter/material.dart';
 
 class DoctorForm extends StatefulWidget {
@@ -21,6 +19,9 @@ class _DoctorFormState extends State<DoctorForm> {
 
   @override
   Widget build(BuildContext context) {
+    // final doctor = ModalRoute.of(context)?.settings.arguments as Doctor;
+    // print(doctor.name);
+    // print(doctor.crm);
     final Doctors doctors = Provider.of(context);
     return Scaffold(
       appBar: AppBar(
