@@ -68,19 +68,19 @@ class AppointmentList extends StatelessWidget {
               },
             ),
             Divider(),
-            ListTile(
-              title: const Text(
-                'Usuários',
-                style: TextStyle(fontSize: 20),
-              ),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => UserList()),
-                );
-              },
-            ),
-            Divider(),
+            // ListTile(
+            //   title: const Text(
+            //     'Usuários',
+            //     style: TextStyle(fontSize: 20),
+            //   ),
+            //   onTap: () {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(builder: (context) => UserList()),
+            //     );
+            //   },
+            // ),
+            // Divider(),
           ],
         ),
       ),

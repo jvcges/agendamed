@@ -40,7 +40,7 @@ class DoctorCard extends StatelessWidget {
                 color: Colors.blueGrey,
                 onPressed: () {
                   Navigator.of(context).pushNamed(
-                    AppRoutes.DOCTOR_FORM,
+                    AppRoutes.DOCTOR_EDIT,
                     arguments: doctor,
                   );
                 },

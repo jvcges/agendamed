@@ -5,9 +5,11 @@ import 'package:agendamed/provider/users.dart';
 import 'package:agendamed/routes/app.routes.dart';
 import 'package:agendamed/views/appointment_details.dart';
 import 'package:agendamed/views/appointment_form.dart';
+import 'package:agendamed/views/doctor_edit.dart';
 import 'package:agendamed/views/doctor_form.dart';
 import 'package:agendamed/views/login_page.dart';
 import 'package:agendamed/views/patient_form.dart';
+import 'package:agendamed/views/patient_edit.dart';
 import 'package:agendamed/views/user_form.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -46,7 +48,9 @@ class MyApp extends StatelessWidget {
           AppRoutes.PATIENT_FORM: (_) => PatientForm(),
           AppRoutes.USER_FORM: (_) => UserForm(),
           AppRoutes.APPOINTMENT_FORM: (_) => AppointmentForm(),
-          AppRoutes.APPOINTMENT_DETAILS: (_) => AppointmentDetails()
+          AppRoutes.APPOINTMENT_DETAILS: (_) => AppointmentDetails(),
+          AppRoutes.DOCTOR_EDIT: (_) => DoctorEdit(),
+          AppRoutes.PATIENT_EDIT: (_) => PatientEdit()
         },
       ),
     );

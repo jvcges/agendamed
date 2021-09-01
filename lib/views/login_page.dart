@@ -100,8 +100,8 @@ class _LoginState extends State<Login> {
                   end: Alignment.bottomRight,
                   stops: [0.3, 1],
                   colors: [
-                    Colors.red.shade400,
-                    Colors.red.shade200,
+                    Colors.blueGrey.shade900,
+                    Colors.blueGrey.shade700,
                   ],
                 ),
                 borderRadius: BorderRadius.all(
