@@ -23,7 +23,7 @@ class _LoginState extends State<Login> {
     return Scaffold(
       body: Container(
         padding: EdgeInsets.only(top: 180, left: 40, right: 40),
-        color: Colors.tealAccent.shade700,
+        color: Colors.blueGrey.shade300,
         child: ListView(
           children: <Widget>[
             SizedBox(
