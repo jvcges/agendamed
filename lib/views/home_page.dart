@@ -1,38 +1,60 @@
 import 'dart:async';
 
+import 'package:agendamed/main.dart';
 import 'package:agendamed/models/user.dart';
 import 'package:agendamed/provider/users.dart';
+import 'package:agendamed/views/login_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
 import 'appointment_list.dart';
 
-class Login extends StatefulWidget {
-  @override
-  _LoginState createState() => _LoginState();
-
-  Login(StreamController _streamBuilder){
-  }
-
+void main() {
+  runApp(MaterialApp(
+    home: HomePage(),
+  ));
 }
 
-
-class _LoginState extends State<Login> {
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _senhaController = TextEditingController();
-  String email = "", senha = "";
-  StreamController _stream = StreamController();
-
+class HomePage extends StatelessWidget {
+  StreamController _dataStream = StreamController();
 
   @override
   Widget build(BuildContext context) {
-    final Users users = Provider.of(context);
+    return Scaffold(
+      body: Center(
+        child: Form(
+          child: StreamBuilder(
+            stream: _dataStream.stream,
+            initialData: "Login",
+            builder: (context, snapshot) {
+              if (snapshot.data == "Login") {
+                return Home(_dataStream);
+              } else {
+                return CircularProgressIndicator();
+              }
+            },
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class Home extends StatelessWidget {
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _senhaController = TextEditingController();
+  String email = "", senha = "";
+  StreamController _dataStream;
+
+  Home(this._dataStream);
+
+  @override
+  Widget build(BuildContext context) {
+    //final Users users = Provider.of(context);
     return Scaffold(
       body: Container(
         padding: EdgeInsets.only(top: 180, left: 40, right: 40),
         color: Colors.blueGrey.shade300,
-
         child: ListView(
           children: <Widget>[
             SizedBox(
@@ -119,24 +141,19 @@ class _LoginState extends State<Login> {
               ),
               child: SizedBox.expand(
                 child: TextButton(
-                  onPressed: () {
-                    if (users.authenticate(User(
-                            id: -1,
-                            name: "",
-                            email: _emailController.text,
-                            password: _senhaController.text,
-                            avatarUrl: "")) ==
-                        true) {
+                  onPressed: () async {
+                    _dataStream.add("Logando");
+                    await Future.delayed(
+                      Duration(seconds: 3),
+                    );
+                    //  CircularProgressIndicator();
+                    _dataStream.add("Login");
 
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => AppointmentList()));
-                    } else {
-                      print("Senha inkdnd");
-                      // print(_emailController.text);
-                      // print(_senhaController.text);
-                    }
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => AppointmentList()));
+
                     /*if (_formKey.currentState!.validate()) {
                       setState(() {});
                       email = _emailController.text;
@@ -155,7 +172,6 @@ class _LoginState extends State<Login> {
                     ),
                     textAlign: TextAlign.left,
                   ),
-
                 ),
               ),
             ),
