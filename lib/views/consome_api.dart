@@ -7,14 +7,14 @@ class ConsomeAPI extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Consome API"),
+        title: Text("Usuários"),
       ),
       body: FutureBuilder<List>(
         future: getPost(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return Center(
-              child: LinearProgressIndicator(),
+              child: CircularProgressIndicator(),
             );
           }
           return ListView.builder(

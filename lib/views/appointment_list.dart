@@ -71,7 +71,7 @@ class AppointmentList extends StatelessWidget {
             Divider(),
             ListTile(
               title: const Text(
-                'Consome API',
+                'Usuários',
                 style: TextStyle(fontSize: 20),
               ),
               onTap: () {
