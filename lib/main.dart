@@ -50,8 +50,8 @@ class MyApp extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
         routes: {
-          //AppRoutes.HOME_PAGE: (_) => HomePage(),
-          AppRoutes.LOGIN: (_) => Login(),
+          AppRoutes.HOME_PAGE: (_) => HomePage(),
+          //AppRoutes.LOGIN: (_) => Login(),
           AppRoutes.DOCTOR_FORM: (_) => DoctorForm(),
           AppRoutes.PATIENT_FORM: (_) => PatientForm(),
           AppRoutes.USER_FORM: (_) => UserForm(),
