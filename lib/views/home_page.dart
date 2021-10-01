@@ -25,12 +25,12 @@ class HomePage extends StatelessWidget {
         child: Form(
           child: StreamBuilder(
             stream: _dataStream.stream,
-            initialData: "Login",
+            initialData: "Logando",
             builder: (context, snapshot) {
-              if (snapshot.data == "Login") {
+              if (snapshot.data == "Logando") {
                 return Home(_dataStream);
               } else {
-                return CircularProgressIndicator();
+                return LinearProgressIndicator();
               }
             },
           ),
@@ -141,12 +141,12 @@ class Home extends StatelessWidget {
               ),
               child: SizedBox.expand(
                 child: TextButton(
+
                   onPressed: () async {
                     _dataStream.add("Logando");
                     await Future.delayed(
-                      Duration(seconds: 3),
+                      Duration(seconds: 1),
                     );
-                    //  CircularProgressIndicator();
                     _dataStream.add("Login");
 
                     Navigator.push(
