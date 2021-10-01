@@ -25,8 +25,8 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
- StreamController _stream = StreamController();
- _stream.add("Login");
+    StreamController _stream = StreamController();
+    _stream.add("Login");
 
     return MultiProvider(
       providers: [
@@ -48,11 +48,10 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blueGrey,
         ),
-
         debugShowCheckedModeBanner: false,
         routes: {
-          AppRoutes.HOME_PAGE: (_) => HomePage(),
-         // AppRoutes.LOGIN: (_) => Login(_stream),
+          //AppRoutes.HOME_PAGE: (_) => HomePage(),
+          AppRoutes.LOGIN: (_) => Login(),
           AppRoutes.DOCTOR_FORM: (_) => DoctorForm(),
           AppRoutes.PATIENT_FORM: (_) => PatientForm(),
           AppRoutes.USER_FORM: (_) => UserForm(),

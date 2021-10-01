@@ -11,19 +11,13 @@ import 'appointment_list.dart';
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
-
-  Login(StreamController _streamBuilder){
-  }
-
 }
-
 
 class _LoginState extends State<Login> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _senhaController = TextEditingController();
   String email = "", senha = "";
   StreamController _stream = StreamController();
-
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +26,6 @@ class _LoginState extends State<Login> {
       body: Container(
         padding: EdgeInsets.only(top: 180, left: 40, right: 40),
         color: Colors.blueGrey.shade300,
-
         child: ListView(
           children: <Widget>[
             SizedBox(
@@ -127,7 +120,6 @@ class _LoginState extends State<Login> {
                             password: _senhaController.text,
                             avatarUrl: "")) ==
                         true) {
-
                       Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -155,7 +147,6 @@ class _LoginState extends State<Login> {
                     ),
                     textAlign: TextAlign.left,
                   ),
-
                 ),
               ),
             ),

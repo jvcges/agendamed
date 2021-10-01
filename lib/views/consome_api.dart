@@ -17,17 +17,19 @@ class ConsomeAPI extends StatelessWidget {
               child: LinearProgressIndicator(),
             );
           }
-          ListView.builder(
-            itemCount: snapshot.data!.length,
-            itemBuilder: (context, index){
-              return ListTile(
-                title: Text("${snapshot.data[index]["name"]}"),
-                
-
-              )
-            }
-
-          )
+          return ListView.builder(
+              itemCount: snapshot.data!.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text("Nome: " + "${snapshot.data![index]["name"]}"),
+                  subtitle: Text("Email: " +
+                      "${snapshot.data![index]["email"]}" +
+                      '\n' +
+                      "Username: " +
+                      "${snapshot.data![index]["username"]}"),
+                  isThreeLine: true,
+                );
+              });
         },
       ),
     );

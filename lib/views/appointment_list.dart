@@ -1,5 +1,6 @@
 import 'package:agendamed/provider/appointments.dart';
 import 'package:agendamed/routes/app.routes.dart';
+import 'package:agendamed/views/consome_api.dart';
 import 'package:agendamed/views/patient_list.dart';
 import 'package:agendamed/views/user_list.dart';
 import 'package:agendamed/widgets/appointment_card.dart';
@@ -68,19 +69,19 @@ class AppointmentList extends StatelessWidget {
               },
             ),
             Divider(),
-            // ListTile(
-            //   title: const Text(
-            //     'Usuários',
-            //     style: TextStyle(fontSize: 20),
-            //   ),
-            //   onTap: () {
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(builder: (context) => UserList()),
-            //     );
-            //   },
-            // ),
-            // Divider(),
+            ListTile(
+              title: const Text(
+                'Consome API',
+                style: TextStyle(fontSize: 20),
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ConsomeAPI()),
+                );
+              },
+            ),
+            Divider(),
           ],
         ),
       ),
